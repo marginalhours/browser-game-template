@@ -4,9 +4,11 @@ import kontra from 'kontra';
 const { init, Sprite, GameLoop } = kontra;
 
 // const canvas = document.getElementById('#game-canvas');
-const canvasElement: HTMLCanvasElement =
-  document.getElementById('#game-canvas');
-const { context, canvas } = init(canvasElement);
+const canvasElement: HTMLCanvasElement = document.getElementById(
+  '#game-canvas'
+) as HTMLCanvasElement;
+
+const { canvas } = init(canvasElement);
 
 let sprite = Sprite({
   x: 100, // starting x,y position of the sprite
