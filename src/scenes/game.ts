@@ -1,4 +1,5 @@
 import kontra from 'kontra';
+import { EventType } from '../constants';
 const { Button } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from './constants';
@@ -14,7 +15,8 @@ let winButton = Button({
   x: canvas.width / 2,
   y: canvas.height / 2,
   onUp() {
-    kontra.emit('navigate', this.text);
+    console.log('change to menu');
+    kontra.emit(EventType.CHANGE_SCENE, SceneID.MENU);
   },
   render() {
     this.draw();
@@ -27,19 +29,19 @@ let winButton = Button({
   },
 });
 
-kontra.track(startButton);
+kontra.track(winButton);
 
-const menuScene = kontra.Scene({
-  id: 'menu',
+const gameScene = kontra.Scene({
+  id: SceneID.GAME,
   onShow() {
-    startButton.text = 'Resume';
-    startButton.focus();
+    winButton.text = 'Win';
+    winButton.focus();
   },
   focus() {
-    startButton.focus();
+    winButton.focus();
   },
 });
 
-menuScene.add(startButton);
+gameScene.add(winButton);
 
-export default menuScene;
+export default gameScene;

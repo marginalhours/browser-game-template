@@ -1,6 +1,12 @@
-export import { SceneID } from './constants'; 
-import menuScene from './menu';
+import { Scene } from 'kontra';
 
-export const allScenes = {
-  [menuScene.id]: menuScene,
-};
+import menuScene from './menu';
+import gameScene from './game';
+// Array of all the scenes
+const sceneArray: Scene[] = [menuScene, gameScene];
+
+// Dictionary of scene ID to Scene
+export const allScenes = sceneArray.reduce(
+  (scenes, scene) => ({ ...scenes, [scene.id]: scene }),
+  {}
+);

@@ -1,5 +1,8 @@
 import kontra from 'kontra';
-const { Button, Scene } = kontra;
+import { SceneID } from '.';
+import { EventType } from '../constants';
+
+const { Button } = kontra;
 const canvas = kontra.getCanvas();
 
 let startButton = Button({
@@ -13,7 +16,8 @@ let startButton = Button({
   x: canvas.width / 2,
   y: canvas.height / 2,
   onUp() {
-    kontra.emit('navigate', this.text);
+    console.log('Change to game');
+    kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME);
   },
   render() {
     this.draw();
@@ -29,9 +33,9 @@ let startButton = Button({
 kontra.track(startButton);
 
 const menuScene = kontra.Scene({
-  id: 'menu',
+  id: SceneID.MENU,
   onShow() {
-    startButton.text = 'Resume';
+    startButton.text = 'Start';
     startButton.focus();
   },
   focus() {
