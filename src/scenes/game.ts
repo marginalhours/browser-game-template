@@ -1,0 +1,45 @@
+import kontra from 'kontra';
+const { Button } = kontra;
+const canvas = kontra.getCanvas();
+import { SceneID } from './constants';
+
+let winButton = Button({
+  text: {
+    color: 'white',
+    font: '30px Monospace',
+    text: 'Start',
+    anchor: { x: 0.5, y: 0.5 },
+  },
+  anchor: { x: 0.5, y: 0.5 },
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  onUp() {
+    kontra.emit('navigate', this.text);
+  },
+  render() {
+    this.draw();
+
+    if (this.focused || this.hovered) {
+      this.textNode.color = 'red';
+    } else {
+      this.textNode.color = 'white';
+    }
+  },
+});
+
+kontra.track(startButton);
+
+const menuScene = kontra.Scene({
+  id: 'menu',
+  onShow() {
+    startButton.text = 'Resume';
+    startButton.focus();
+  },
+  focus() {
+    startButton.focus();
+  },
+});
+
+menuScene.add(startButton);
+
+export default menuScene;

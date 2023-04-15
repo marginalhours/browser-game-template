@@ -15,7 +15,7 @@
 }
 
 #game-canvas {
-  background-color: #fff;
+  background-color: #333331;
   border: 1px solid #777;
   border-radius: 5px;
 }
@@ -23,7 +23,9 @@
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: #e5e5f7;
@@ -37,11 +39,4 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
