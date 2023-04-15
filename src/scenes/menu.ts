@@ -1,5 +1,5 @@
 import kontra from 'kontra';
-import { SceneID } from '.';
+import { SceneID } from './constants';
 import { EventType } from '../constants';
 
 const { Button } = kontra;

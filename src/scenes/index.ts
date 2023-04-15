@@ -6,7 +6,7 @@ import gameScene from './game';
 const sceneArray: Scene[] = [menuScene, gameScene];
 
 // Dictionary of scene ID to Scene
-export const allScenes = sceneArray.reduce(
+export const allScenes: Record<string, Scene> = sceneArray.reduce(
   (scenes, scene) => ({ ...scenes, [scene.id]: scene }),
   {}
 );
