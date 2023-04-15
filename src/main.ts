@@ -1,7 +1,7 @@
 import './style.css';
 import kontra from 'kontra';
 
-import { init, GameLoop, Scene, emit } from 'kontra';
+import { init, GameLoop, Scene } from 'kontra';
 import { allScenes } from './scenes';
 import menuScene from './scenes/menu';
 
@@ -9,7 +9,8 @@ const canvasElement: HTMLCanvasElement = document.getElementById(
   '#game-canvas'
 ) as HTMLCanvasElement;
 
-const { canvas } = init(canvasElement);
+// initialize kontra
+init(canvasElement);
 
 // Store the current scene in a global
 let activeScene: Scene = menuScene;

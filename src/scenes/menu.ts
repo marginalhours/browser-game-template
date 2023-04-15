@@ -1,4 +1,4 @@
-import { init, Sprite, Gameloop, Scene } from 'kontra';
+import { Sprite, Scene } from 'kontra';
 
 let sprite = Sprite({
   x: 100, // starting x,y position of the sprite
