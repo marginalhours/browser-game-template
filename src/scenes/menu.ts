@@ -16,10 +16,10 @@ let startButton = Button({
   x: canvas.width / 2,
   y: canvas.height / 2,
   onDown() {
-    this.y += 1;
+    (this.y as number) += 1;
   },
   onUp() {
-    this.y -= 1;
+    (this.y as number) -= 1;
     setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
   },
   render() {
