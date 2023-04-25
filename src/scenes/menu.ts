@@ -2,13 +2,40 @@ import kontra from 'kontra';
 import { SceneID } from './constants';
 import { EventType } from '../constants';
 
-const { Button } = kontra;
+const { ButtonClass } = kontra;
 const canvas = kontra.getCanvas();
 
-let startButton = Button({
+const noop = () => {};
+
+interface HoverableButtonProps {
+  onOver: () => void;
+  onOut: () => void;
+  props: any;
+}
+
+class HoverableButton extends ButtonClass {
+  init({ onOver, onOut, ...props }: HoverableButtonProps) {
+    this._oo = onOver || noop;
+    this._ooo = onOut || noop;
+    super.init(props);
+  }
+
+  onOver() {
+    this._oo();
+    super.onOver();
+  }
+
+  onOut() {
+    this._ooo();
+    super.onOut();
+  }
+}
+
+let startButton = new HoverableButton({
   text: {
     color: 'white',
     font: '16px monospace',
+    background: '#f00',
     text: 'start game',
     anchor: { x: 0.5, y: 0.5 },
   },
@@ -21,6 +48,12 @@ let startButton = Button({
   onUp() {
     (this.y as number) -= 1;
     setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
+  },
+  onOver() {
+    canvas.style.cursor = 'pointer';
+  },
+  onOut() {
+    canvas.style.cursor = 'auto';
   },
   render() {
     this.draw();
