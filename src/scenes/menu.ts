@@ -8,24 +8,29 @@ const canvas = kontra.getCanvas();
 let startButton = Button({
   text: {
     color: 'white',
-    font: '30px Monospace',
-    text: 'Start',
+    font: '16px monospace',
+    text: 'start game',
     anchor: { x: 0.5, y: 0.5 },
   },
   anchor: { x: 0.5, y: 0.5 },
   x: canvas.width / 2,
   y: canvas.height / 2,
+  onDown() {
+    this.y += 1;
+  },
   onUp() {
-    console.log('Change to game');
-    kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME);
+    this.y -= 1;
+    setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
   },
   render() {
     this.draw();
 
-    if (this.focused || this.hovered) {
-      this.textNode.color = 'red';
+    if (this.pressed) {
+      this.textNode.color = '#aaa';
+    } else if (this.focused || this.hovered) {
+      this.textNode.color = '#ccc';
     } else {
-      this.textNode.color = 'white';
+      this.textNode.color = '#fff';
     }
   },
 });
@@ -35,7 +40,6 @@ kontra.track(startButton);
 const menuScene = kontra.Scene({
   id: SceneID.MENU,
   onShow() {
-    startButton.text = 'Start';
     startButton.focus();
   },
   focus() {

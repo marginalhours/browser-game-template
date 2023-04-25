@@ -18,6 +18,9 @@
   background-color: #333331;
   border: 1px solid #777;
   border-radius: 5px;
+  width: 640px;
+  height: 480px;
+  image-rendering: pixelated;
 }
 
 body {
@@ -28,12 +31,14 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #e5e5f7;
-  opacity: 0.8;
-  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px),
-    radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
+  background: radial-gradient(circle, #c9c9ca 10%, transparent 11%),
+    radial-gradient(circle at bottom left, #c9c9ca 5%, transparent 6%),
+    radial-gradient(circle at bottom right, #c9c9ca 5%, transparent 6%),
+    radial-gradient(circle at top left, #c9c9ca 5%, transparent 6%),
+    radial-gradient(circle at top right, #c9c9ca 5%, transparent 6%);
+  background-size: 1em 1em;
+  background-color: #ffffff;
+  opacity: 1;
 }
 
 h1 {
