@@ -1,10 +1,26 @@
 import kontra from 'kontra';
 import { EventType } from '../constants';
-const { Button, Sprite, SpriteClass } = kontra;
+const { Button, SpriteSheet, SpriteClass } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from './constants';
 
 import { playBounce } from '../sounds';
+
+import walker from '../assets/images/walker.png';
+
+const WalkSpriteSheet = SpriteSheet({
+  image: walker,
+  frameWidth: 32,
+  frameHeight: 32,
+  animations: {
+    walk: {
+      frames: "0..8",
+      frameRate: 12
+    }
+  }
+});
+
+
 
 class BounceSprite extends SpriteClass {
   update() {

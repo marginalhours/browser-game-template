@@ -2,11 +2,11 @@ import './style.css';
 
 import kontra, { Scene, GameLoop } from 'kontra';
 import { allScenes } from './scenes';
-import menuScene from './scenes/menu';
+import loadingScene from './scenes/loading';
 import { EventType } from './constants';
 
 // Store the current scene in a global
-let activeScene: Scene = menuScene;
+let activeScene: Scene = loadingScene;
 
 // Event handling for scene transitions
 kontra.on(EventType.CHANGE_SCENE, (sceneName: string) => {
