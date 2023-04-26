@@ -8,12 +8,11 @@ const canvasElement: HTMLCanvasElement = document.getElementById(
   'game-canvas'
 ) as HTMLCanvasElement;
 
-const ctx = canvasElement.getContext('2d') as CanvasRenderingContext2D;
-
-const pixelRatio = window.devicePixelRatio || 1;
-const bounds = canvasElement.getBoundingClientRect();
-
 // Uncomment below if you have enough time to sort out pixel ratio nonsense
+
+// const ctx = canvasElement.getContext('2d') as CanvasRenderingContext2D;
+// const pixelRatio = window.devicePixelRatio || 1;
+// const bounds = canvasElement.getBoundingClientRect();
 // ctx.canvas.width = pixelRatio * bounds.width;
 // ctx.canvas.height = pixelRatio * bounds.height;
 

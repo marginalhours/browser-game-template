@@ -1,6 +1,6 @@
 import kontra from 'kontra';
 import { EventType } from '../constants';
-const { Button, SpriteSheet, SpriteClass, Sprite, imageAssets } = kontra;
+const { Button, SpriteSheet, SpriteClass, imageAssets } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from './constants';
 
