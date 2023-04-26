@@ -17,6 +17,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "howler": "^2.2.3",
     "kontra": "^9.0.0"
   }
 }
