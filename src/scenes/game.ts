@@ -69,10 +69,29 @@ let winButton = Button({
 
 kontra.track(winButton);
 
+let men: WalkSprite[] = [];
+
 const gameScene = kontra.Scene({
   id: SceneID.GAME,
   onShow() {
     winButton.focus();
+    men = Array.from(Array(25).keys()).map((_) => {
+      let man = new WalkSprite({
+        x: canvas.width * Math.random(),
+        y: canvas.height * Math.random(),
+        speed: 1.0,
+        heading: Math.PI * 2 * Math.random(),
+        anchor: { x: 0.0, y: 0.0 },
+        scaleX: 2.0,
+        scaleY: 2.0,
+        animations: walkSpriteSheet.animations,
+      });
+      return man;
+    });
+    this.add(...men);
+  },
+  onHide() {
+    this.remove(...men);
   },
   focus() {
     winButton.focus();
@@ -82,8 +101,8 @@ const gameScene = kontra.Scene({
 class WalkSprite extends SpriteClass {
   draw() {
     this.context.save();
-    this.context.translate(-this.width / 2, -this.height / 2);
     this.context.rotate(this.heading);
+    this.context.translate(-this.width / 2, -this.height / 2);
     super.draw();
     this.context.restore();
   }
@@ -93,38 +112,26 @@ class WalkSprite extends SpriteClass {
     this.y += this.speed * Math.sin(this.heading);
 
     super.update();
-    if (this.y > canvas.height - this.width || this.y <= 0 + this.width) {
-      this.angle = this.angle === 0 ? Math.PI : 0;
-      this.dx = -this.dx;
-    }
+
+    this.x = (this.x + canvas.width) % canvas.width;
+    this.y = (this.y + canvas.height) % canvas.height;
   }
 }
 
+let walkSpriteSheet: any;
+
 kontra.on(EventType.LOADING_COMPLETE, () => {
-  const walkSpriteSheet = SpriteSheet({
+  walkSpriteSheet = SpriteSheet({
     image: imageAssets[walker],
     frameWidth: 32,
     frameHeight: 32,
     animations: {
       walk: {
         frames: '0..7',
-        frameRate: 24,
+        frameRate: 12,
       },
     },
   });
-
-  let sprite = new WalkSprite({
-    x: 200,
-    y: 100,
-    speed: 1.0,
-    heading: Math.PI / 2,
-    anchor: { x: 0.5, y: 0.5 },
-    scaleX: 2.0,
-    scaleY: 2.0,
-    animations: walkSpriteSheet.animations,
-  });
-
-  gameScene.add(sprite);
 });
 
 gameScene.add(bounceSprite);
