@@ -27,3 +27,5 @@ const loop: GameLoop = GameLoop({
 
 // Kick off game updates
 loop.start();
+// Trigger loading scene to load assets
+loadingScene.show();

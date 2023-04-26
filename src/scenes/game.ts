@@ -4,7 +4,7 @@ const { Button, SpriteSheet, SpriteClass } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from './constants';
 
-import { playBounce } from '../sounds';
+import { playSound, SoundType } from '../soundManager';
 
 import walker from '../assets/images/walker.png';
 
@@ -14,13 +14,11 @@ const WalkSpriteSheet = SpriteSheet({
   frameHeight: 32,
   animations: {
     walk: {
-      frames: "0..8",
-      frameRate: 12
-    }
-  }
+      frames: '0..8',
+      frameRate: 12,
+    },
+  },
 });
-
-
 
 class BounceSprite extends SpriteClass {
   update() {
@@ -36,7 +34,7 @@ class BounceSprite extends SpriteClass {
     }
 
     if (hasBounced) {
-      playBounce();
+      playSound(SoundType.BOING);
     }
   }
 }

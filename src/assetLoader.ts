@@ -1,16 +1,20 @@
+/*
+ * This file stitches together the howlerjs and kontra loading systems
+ * to handle audio and image loading respectively
+ */
 import kontra from 'kontra';
+import { Howl } from 'howler';
+import { registerSound } from './soundManager';
 import { EventType } from './constants';
 
-const { load, setImagePath, imageAssets, setAudioPath, audioAssets } = kontra;
-
 // Audio imports
-import bounceSrc from './assets/sounds/boing.ogg';
+import boingSrc from './assets/sounds/boing.ogg';
 
 // Image imports
 import walkerSrc from './assets/images/walker.png';
 
 // Audio
-const audioFiles = [bounceSrc];
+const audioFiles = [boingSrc];
 
 // Images
 const imageFiles = [walkerSrc];
@@ -19,17 +23,40 @@ const imageFiles = [walkerSrc];
 const assetsToLoadCount = audioFiles.length + imageFiles.length;
 let loadedAssetsCount = 0;
 
-kontra.on(EventType._KONTRA_ASSET_LOADED, () => {
+// Used via kontra/howl to report loading progress
+const loadingProgressCallback = (kind: string, path: string) => {
+  kontra.emit(EventType.SINGLE_ASSET_LOADED, kind, path);
+
   loadedAssetsCount += 1;
 
   kontra.emit(
     EventType.LOADING_PROGRESS,
-    assetsToLoadCount / loadedAssetsCount
+    loadedAssetsCount / assetsToLoadCount
   );
-});
+
+  if (loadedAssetsCount === assetsToLoadCount) {
+    kontra.emit(EventType.LOADING_COMPLETE);
+  }
+};
+
+kontra.on(EventType._KONTRA_ASSET_LOADED, loadingProgressCallback);
 
 export const startAssetLoading = () => {
-  load(audioFiles, imageFiles).then(() => {
-    kontra.emit(EventType.LOADING_COMPLETE);
+  // Audio file loading via howl
+  audioFiles.map((source) => {
+    registerSound(
+      source,
+      new Howl({
+        src: [source],
+        autoplay: false,
+        loop: false,
+        rate: 1.0,
+        volume: 0.25,
+        onload: () => loadingProgressCallback('sound', source),
+      })
+    );
   });
+
+  // Image file loading via kontra
+  kontra.load(...imageFiles);
 };
