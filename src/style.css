@@ -15,12 +15,18 @@
 }
 
 #game-canvas {
-  background-color: #333331;
   border: 1px solid #777;
   border-radius: 5px;
   width: 640px;
   height: 480px;
   image-rendering: pixelated;
+  background: radial-gradient(circle, #00ca00 10%, transparent 11%),
+    radial-gradient(circle at bottom left, #00ca00 5%, transparent 6%),
+    radial-gradient(circle at bottom right, #00ca00 5%, transparent 6%),
+    radial-gradient(circle at top left, #00ca00 5%, transparent 6%),
+    radial-gradient(circle at top right, #00ca00 5%, transparent 6%);
+  background-size: 1em 1em;
+  background-color: #e0ffe0;
 }
 
 body {

@@ -1,26 +1,12 @@
 import kontra from 'kontra';
 import { EventType } from '../constants';
-const { Button, SpriteSheet, SpriteClass, imageAssets } = kontra;
+const { Button, SpriteSheet, SpriteClass, Sprite, imageAssets } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from './constants';
 
 import { playSound, SoundType } from '../soundManager';
 
 import walker from '../assets/images/walker.png';
-
-const WalkSpriteSheet = SpriteSheet({
-  image: imageAssets[walker],
-  frameWidth: 32,
-  frameHeight: 32,
-  animations: {
-    walk: {
-      frames: '0..8',
-      frameRate: 12,
-    },
-  },
-});
-
-console.log(WalkSpriteSheet.image);
 
 class BounceSprite extends SpriteClass {
   update() {
@@ -31,7 +17,7 @@ class BounceSprite extends SpriteClass {
       hasBounced = true;
     }
     if (this.y > canvas.height - this.height || this.y <= 0) {
-      sprite.dy = -sprite.dy;
+      this.dy = -this.dy;
       hasBounced = true;
     }
 
@@ -41,7 +27,7 @@ class BounceSprite extends SpriteClass {
   }
 }
 
-let sprite = new BounceSprite({
+let bounceSprite = new BounceSprite({
   x: 100, // starting x,y position of the sprite
   y: 80,
   color: 'red', // fill color of the sprite rectangle
@@ -53,7 +39,7 @@ let sprite = new BounceSprite({
 
 let winButton = Button({
   text: {
-    color: 'white',
+    color: 'red',
     font: '16px monospace',
     text: 'win game',
     anchor: { x: 0.5, y: 0.5 },
@@ -93,7 +79,55 @@ const gameScene = kontra.Scene({
   },
 });
 
-gameScene.add(sprite);
+class WalkSprite extends SpriteClass {
+  draw() {
+    this.context.save();
+    this.context.translate(-this.width / 2, -this.height / 2);
+    this.context.rotate(this.heading);
+    super.draw();
+    this.context.restore();
+  }
+
+  update() {
+    this.x += this.speed * Math.cos(this.heading);
+    this.y += this.speed * Math.sin(this.heading);
+
+    super.update();
+    if (this.y > canvas.height - this.width || this.y <= 0 + this.width) {
+      this.angle = this.angle === 0 ? Math.PI : 0;
+      this.dx = -this.dx;
+    }
+  }
+}
+
+kontra.on(EventType.LOADING_COMPLETE, () => {
+  const walkSpriteSheet = SpriteSheet({
+    image: imageAssets[walker],
+    frameWidth: 32,
+    frameHeight: 32,
+    animations: {
+      walk: {
+        frames: '0..7',
+        frameRate: 24,
+      },
+    },
+  });
+
+  let sprite = new WalkSprite({
+    x: 200,
+    y: 100,
+    speed: 1.0,
+    heading: Math.PI / 2,
+    anchor: { x: 0.5, y: 0.5 },
+    scaleX: 2.0,
+    scaleY: 2.0,
+    animations: walkSpriteSheet.animations,
+  });
+
+  gameScene.add(sprite);
+});
+
+gameScene.add(bounceSprite);
 gameScene.add(winButton);
 
 export default gameScene;
