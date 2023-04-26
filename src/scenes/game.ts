@@ -1,10 +1,31 @@
 import kontra from 'kontra';
 import { EventType } from '../constants';
-const { Button, Sprite } = kontra;
+const { Button, Sprite, SpriteClass } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from './constants';
 
-let sprite = Sprite({
+import { playBounce } from '../sounds';
+
+class BounceSprite extends SpriteClass {
+  update() {
+    super.update();
+    let hasBounced = false;
+    if (this.x > canvas.width - this.width || this.x <= 0) {
+      this.dx = -this.dx;
+      hasBounced = true;
+    }
+    if (this.y > canvas.height - this.height || this.y <= 0) {
+      sprite.dy = -sprite.dy;
+      hasBounced = true;
+    }
+
+    if (hasBounced) {
+      playBounce();
+    }
+  }
+}
+
+let sprite = new BounceSprite({
   x: 100, // starting x,y position of the sprite
   y: 80,
   color: 'red', // fill color of the sprite rectangle
@@ -53,15 +74,6 @@ const gameScene = kontra.Scene({
   },
   focus() {
     winButton.focus();
-  },
-  update() {
-    sprite.update();
-    if (sprite.x > canvas.width - sprite.width || sprite.x <= 0) {
-      sprite.dx = -sprite.dx;
-    }
-    if (sprite.y > canvas.height - sprite.height || sprite.y <= 0) {
-      sprite.dy = -sprite.dy;
-    }
   },
 });
 

@@ -1,6 +1,6 @@
 import { Howl } from 'howler';
 
-import bounceSrc from './assets/sounds/bounce';
+import bounceSrc from './assets/sounds/boing.ogg';
 
 const bounceSound = new Howl({
   src: [bounceSrc],
