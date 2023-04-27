@@ -17,9 +17,8 @@
 #game-canvas {
   border: 1px solid #777;
   border-radius: 5px;
-  width: 640px;
-  height: 480px;
   image-rendering: pixelated;
+  max-width: 98vw;
   background: radial-gradient(circle, #00ca00 10%, transparent 11%),
     radial-gradient(circle at bottom left, #00ca00 5%, transparent 6%),
     radial-gradient(circle at bottom right, #00ca00 5%, transparent 6%),
