@@ -14,5 +14,5 @@ export const registerSound = (path: string, sound: Howl) => {
 };
 
 export const playSound = (sound: SoundType) => {
-  false && audioAssets[sound].play();
+  true && audioAssets[sound].play();
 };
