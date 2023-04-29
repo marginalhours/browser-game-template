@@ -4,7 +4,7 @@
  */
 import kontra from 'kontra';
 import { Howl } from 'howler';
-import { registerSound } from './soundManager';
+import { registerSound, SoundType } from './soundManager';
 import { EventType } from './constants';
 
 // Audio imports
@@ -14,7 +14,7 @@ import boingSrc from './assets/sounds/boing.ogg';
 import walkerSrc from './assets/images/walker.png';
 
 // Audio
-const audioFiles = [boingSrc];
+const audioFiles = [[SoundType.BOING, boingSrc]];
 
 // Images
 const imageFiles = [walkerSrc];
@@ -43,9 +43,9 @@ kontra.on(EventType._KONTRA_ASSET_LOADED, loadingProgressCallback);
 
 export const startAssetLoading = () => {
   // Audio file loading via howl
-  audioFiles.map((source) => {
+  audioFiles.map(([name, source]) => {
     registerSound(
-      source,
+      name,
       new Howl({
         src: [source],
         autoplay: false,
