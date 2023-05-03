@@ -21,6 +21,7 @@ A ready-to-go game jam template using Kontra.js and GitHub actions
 - Rework asset loading to be easier (glob folders? one-function-attach?)
 - Query parameter deeplink-to-screen for testing purposes
 - tileset usage
+- FULLSCREEN
 - stub entities (clickable, keyboard controlled)
 - utility classes (hoverable button?)
 - utility _scenes_ (ImageScene with a static image and a back button, MenuScene etc) 
