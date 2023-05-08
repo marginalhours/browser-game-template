@@ -24,9 +24,12 @@ A ready-to-go game jam template using Kontra.js and GitHub actions
 - FULLSCREEN
 - Custom fonts
 - stub entities (clickable, keyboard controlled)
-- utility classes (hoverable button?)
+- utility classes (hoverable button, progress dot, keycap symbols)
 - utility _scenes_ (ImageScene with a static image and a back button, MenuScene etc) 
 - work harder at figuring out the kontra factory-vs-class pattern to be a bit slicker
 - camera shenanigans
 - collision detection (?)
 - localStorage example
+- multiscreen instructions example
+- JRPG dialogue example
+- matterjs integration example
