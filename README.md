@@ -33,3 +33,4 @@ A ready-to-go game jam template using Kontra.js and GitHub actions
 - multiscreen instructions example
 - JRPG dialogue example
 - matterjs integration example
+- achievements (woo)
