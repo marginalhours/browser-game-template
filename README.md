@@ -24,12 +24,11 @@ and look it up in `imageAssets` (imported from `kontra`)
 
 ## Post-LD-53 todo list
 
+- utility _scenes_ (ImageScene with a static image and a back button, MenuScene etc)
 - tileset usage
-- FULLSCREEN
 - Custom fonts
 - stub entities (clickable, keyboard controlled)
 - utility classes (hoverable button, progress dot, keycap symbols)
-- utility _scenes_ (ImageScene with a static image and a back button, MenuScene etc)
 - work harder at figuring out the kontra factory-vs-class pattern to be a bit slicker
 - camera shenanigans
 - collision detection (?)
