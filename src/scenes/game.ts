@@ -1,12 +1,12 @@
-import kontra from 'kontra';
-import { EventType } from '../constants';
+import kontra from "kontra";
+import { EventType } from "../constants";
 const { Button, SpriteSheet, SpriteClass, imageAssets } = kontra;
 const canvas = kontra.getCanvas();
-import { SceneID } from './constants';
+import { SceneID } from "./constants";
 
-import { playSound, SoundType } from '../soundManager';
+import { playSound, SoundType } from "../soundManager";
 
-import walker from '../assets/images/walker.png';
+import walker from "../assets/images/walker.png";
 
 class BounceSprite extends SpriteClass {
   update() {
@@ -30,7 +30,7 @@ class BounceSprite extends SpriteClass {
 let bounceSprite = new BounceSprite({
   x: 100, // starting x,y position of the sprite
   y: 80,
-  color: 'red', // fill color of the sprite rectangle
+  color: "red", // fill color of the sprite rectangle
   width: 20, // width and height of the sprite rectangle
   height: 20,
   dx: 2, // move the sprite 2px to the right every frame
@@ -39,9 +39,9 @@ let bounceSprite = new BounceSprite({
 
 let winButton = Button({
   text: {
-    color: 'red',
-    font: '16px monospace',
-    text: 'win game',
+    color: "red",
+    font: "16px monospace",
+    text: "win game",
     anchor: { x: 0.5, y: 0.5 },
   },
   anchor: { x: 0.5, y: 0.5 },
@@ -58,11 +58,11 @@ let winButton = Button({
     this.draw();
 
     if (this.pressed) {
-      this.textNode.color = '#aaa';
+      this.textNode.color = "#aaa";
     } else if (this.focused || this.hovered) {
-      this.textNode.color = '#ccc';
+      this.textNode.color = "#ccc";
     } else {
-      this.textNode.color = '#fff';
+      this.textNode.color = "#fff";
     }
   },
 });
@@ -127,7 +127,7 @@ kontra.on(EventType.LOADING_COMPLETE, () => {
     frameHeight: 32,
     animations: {
       walk: {
-        frames: '0..7',
+        frames: "0..7",
         frameRate: 12,
       },
     },

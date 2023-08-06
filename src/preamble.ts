@@ -2,10 +2,10 @@
  * This file initializes kontra before the main script, so that the canvas object, pointer events etc
  * are available in scenes.
  */
-import kontra from 'kontra';
+import kontra from "kontra";
 
 const canvasElement: HTMLCanvasElement = document.getElementById(
-  'game-canvas'
+  "game-canvas",
 ) as HTMLCanvasElement;
 
 // Uncomment below if you have enough time to sort out pixel ratio nonsense

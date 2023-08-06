@@ -9,6 +9,6 @@ export const lerp = (a: number, b: number, f: number): number => {
 export const invertEnum = (T: any): Record<string, keyof typeof T> => {
   return Object.keys(T).reduce(
     (acc, key) => ({ ...acc, [T[key as keyof typeof T]]: key }),
-    {}
+    {},
   );
 };

@@ -29,7 +29,7 @@ export const startAssetLoading = () => {
         rate: 1.0,
         volume: 0.25,
         onload: () => loadingProgressCallback(AssetType.SOUND, source),
-      })
+      }),
     );
   });
 
@@ -45,8 +45,8 @@ export const startAssetLoading = () => {
         volume: 0.1,
         onload: () =>
           loadingProgressCallback(AssetType.MUSIC, source as string),
-      })
-    )
+      }),
+    ),
   );
 
   // Load images via Kontra
@@ -60,7 +60,7 @@ export const startAssetLoading = () => {
  */
 const soundLookup = invertEnum(SoundType);
 const soundFiles: string[][] = Object.values(
-  import.meta.glob("./assets/sounds/**/*.{mp3,ogg}", { eager: true })
+  import.meta.glob("./assets/sounds/**/*.{mp3,ogg}", { eager: true }),
 )
   .map((asset: any) => {
     const modPath = asset.default as string;
@@ -77,7 +77,7 @@ const soundFiles: string[][] = Object.values(
  */
 const musicLookup = invertEnum(MusicType);
 const musicFiles: string[][] = Object.values(
-  import.meta.glob("./assets/music/**/*.{mp3,ogg}", { eager: true })
+  import.meta.glob("./assets/music/**/*.{mp3,ogg}", { eager: true }),
 )
   .map((asset: any) => {
     const modPath = asset.default as string;
@@ -92,7 +92,7 @@ const musicFiles: string[][] = Object.values(
  * then makes them available as a big list of paths for Kontra to load
  */
 const imageFiles = Object.values(
-  import.meta.glob("./assets/images/**/*.png", { eager: true })
+  import.meta.glob("./assets/images/**/*.png", { eager: true }),
 ).map((asset: any) => asset.default);
 
 /**

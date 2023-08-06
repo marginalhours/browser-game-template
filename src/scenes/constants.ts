@@ -1,5 +1,5 @@
 export enum SceneID {
-  LOADING = 'loading',
-  MENU = 'menu',
-  GAME = 'game',
+  LOADING = "loading",
+  MENU = "menu",
+  GAME = "game",
 }

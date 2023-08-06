@@ -1,6 +1,6 @@
-import kontra from 'kontra';
-import { SceneID } from './constants';
-import { EventType } from '../constants';
+import kontra from "kontra";
+import { SceneID } from "./constants";
+import { EventType } from "../constants";
 
 const { ButtonClass } = kontra;
 const canvas = kontra.getCanvas();
@@ -33,10 +33,10 @@ class HoverableButton extends ButtonClass {
 
 let startButton = new HoverableButton({
   text: {
-    color: 'white',
-    font: '16px monospace',
-    background: '#f00',
-    text: 'start game',
+    color: "white",
+    font: "16px monospace",
+    background: "#f00",
+    text: "start game",
     anchor: { x: 0.5, y: 0.5 },
   },
   anchor: { x: 0.5, y: 0.5 },
@@ -50,20 +50,20 @@ let startButton = new HoverableButton({
     setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
   },
   onOver() {
-    canvas.style.cursor = 'pointer';
+    canvas.style.cursor = "pointer";
   },
   onOut() {
-    canvas.style.cursor = 'auto';
+    canvas.style.cursor = "auto";
   },
   render() {
     this.draw();
 
     if (this.pressed) {
-      this.textNode.color = '#aaa';
+      this.textNode.color = "#aaa";
     } else if (this.focused || this.hovered) {
-      this.textNode.color = '#ccc';
+      this.textNode.color = "#ccc";
     } else {
-      this.textNode.color = '#fff';
+      this.textNode.color = "#fff";
     }
   },
 });
