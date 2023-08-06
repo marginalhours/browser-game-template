@@ -14,20 +14,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-#game-canvas {
-  border: 1px solid #777;
-  border-radius: 5px;
-  image-rendering: pixelated;
-  max-width: 98vw;
-  background: radial-gradient(circle, #00ca00 10%, transparent 11%),
-    radial-gradient(circle at bottom left, #00ca00 5%, transparent 6%),
-    radial-gradient(circle at bottom right, #00ca00 5%, transparent 6%),
-    radial-gradient(circle at top left, #00ca00 5%, transparent 6%),
-    radial-gradient(circle at top right, #00ca00 5%, transparent 6%);
-  background-size: 1em 1em;
-  background-color: #e0ffe0;
-}
-
 body {
   margin: 0;
   display: flex;
@@ -49,4 +35,64 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+#game-canvas {
+  border: 1px solid #777;
+  border-radius: 5px;
+  image-rendering: pixelated;
+  max-width: 98vw;
+  background: radial-gradient(circle, #00ca00 10%, transparent 11%),
+    radial-gradient(circle at bottom left, #00ca00 5%, transparent 6%),
+    radial-gradient(circle at bottom right, #00ca00 5%, transparent 6%),
+    radial-gradient(circle at top left, #00ca00 5%, transparent 6%),
+    radial-gradient(circle at top right, #00ca00 5%, transparent 6%);
+  background-size: 1em 1em;
+  background-color: #e0ffe0;
+}
+
+/* Fullscreen (general) */
+
+.fullscreen-letterbox {
+  position: relative;
+  background-color: #aaa;
+  display: flex;
+}
+
+.fullscreen-toggle {
+  border: none;
+  outline: none;
+  background: transparent;
+  position: absolute;
+  bottom: 8px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.fullscreen-toggle svg {
+  transition:
+    transform 100ms ease-in-out,
+    fill 100ms ease-in-out;
+  transform-origin: 50% 50%;
+  width: 32px;
+  height: 32px;
+  fill: #000;
+}
+
+.fullscreen-toggle svg:hover {
+  transform: scale(1.1);
+}
+
+/* Edit the below styles to customize full screen behaviour */
+
+@media all and (display-mode: fullscreen) {
+  .fullscreen-letterbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #game-canvas {
+    height: 100%;
+  }
 }

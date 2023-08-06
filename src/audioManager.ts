@@ -4,7 +4,9 @@
  * - Let you play music
  *
  * Music is different from sounds because (1) only one music playing at a time (2) music sounds loop
+ *
  */
+
 import { Howl } from "howler";
 import { SoundType, soundAssets } from "./assets/sounds";
 import { MusicType, musicAssets } from "./assets/music";
@@ -20,10 +22,11 @@ export function isMuted(): boolean {
   return mute;
 }
 
+// TODO: separate sound/music sliders for fancy volume management
+
 export function toggleMute(): boolean {
   let mutedNow = (mute = mute === false);
-  Howler.volume(mutedNow ? 0.0 : 1.0);
-
+  Howler.mute(mutedNow);
   return mutedNow;
 }
 
