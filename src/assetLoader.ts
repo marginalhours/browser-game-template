@@ -64,7 +64,16 @@ const soundFiles: string[][] = Object.values(
 )
   .map((asset: any) => {
     const modPath = asset.default as string;
-    const assetPath = modPath.slice(modPath.indexOf("src/assets/sounds/") + 18);
+
+    let assetPath;
+    if (import.meta.env.DEV) {
+      assetPath = modPath.slice(modPath.indexOf("src/assets/sounds/") + 18);
+    } else {
+      assetPath = (modPath.split("/").pop() as string).replace(
+        /-[0-9abcdef]{8}/, // strip vite asset hash
+        "",
+      );
+    }
 
     return [assetPath, modPath];
   })
@@ -81,7 +90,16 @@ const musicFiles: string[][] = Object.values(
 )
   .map((asset: any) => {
     const modPath = asset.default as string;
-    const assetPath = modPath.slice(modPath.indexOf("src/assets/music/") + 17);
+
+    let assetPath;
+    if (import.meta.env.DEV) {
+      assetPath = modPath.slice(modPath.indexOf("src/assets/music/") + 17);
+    } else {
+      assetPath = (modPath.split("/").pop() as string).replace(
+        /-[0-9abcdef]{8}/, // strip vite asset hash
+        "",
+      );
+    }
 
     return [assetPath, modPath];
   })
@@ -95,6 +113,8 @@ const imageFiles = Object.values(
   import.meta.glob("./assets/images/**/*.png", { eager: true }),
 ).map((asset: any) => asset.default);
 
+console.log(imageFiles);
+
 /**
  * This block manages progress events
  */
@@ -104,6 +124,8 @@ const assetsToLoadCount =
 let loadedAssetsCount = 0;
 
 const loadingProgressCallback = (kind: AssetType, path: string) => {
+  console.log(`Loaded asset: ${path}`);
+
   loadedAssetsCount += 1;
   const progress = loadedAssetsCount / assetsToLoadCount;
 

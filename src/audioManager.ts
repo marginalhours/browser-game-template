@@ -41,10 +41,18 @@ export const registerMusic = (path: string, music: Howl) => {
 };
 
 export const playSound = (sound: SoundType) => {
+  if (soundAssets[sound] === undefined) {
+    console.warn(`No such sound: ${sound}`);
+  }
+
   soundAssets[sound]?.play();
 };
 
 export const playMusic = (music: MusicType) => {
+  if (musicAssets[music] === undefined) {
+    console.warn(`No such music: ${music}`);
+  }
+
   if (currentMusicType === music) {
     return;
   }
