@@ -1,15 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Browser Game Template</title>
-    <script type="module" crossorigin src="/browser-game-template/assets/index-6c1ccd4c.js"></script>
-    <link rel="stylesheet" href="/browser-game-template/assets/index-d37cfd6f.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Browser Game Template</title>
+  <script type="module" crossorigin src="/browser-game-template/assets/index-a7dce1c4.js"></script>
+  <link rel="stylesheet" href="/browser-game-template/assets/index-cd714619.css">
+</head>
+
+<body>
+  <div class="fullscreen-letterbox">
     <canvas id="game-canvas" width="640" height="480"></canvas>
-    
-    
-  </body>
+    <button class="fullscreen-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+          d="m68 457-6-5-3-4v-53c0-53 0-54 2-57 4-5 7-7 13-7 5 0 7 1 10 3 6 5 7 6 7 40v30l35-35c20-20 37-37 39-37 7-3 15 0 19 7 3 3 3 9 1 13 0 2-17 19-36 39l-36 36h30c34 0 35 0 40 7 4 5 4 13 0 18-5 7-3 7-61 7-45 0-51 0-54-2zm256 0-6-5c-2-3-3-5-3-9 0-7 2-10 7-14 3-2 4-2 34-2l32-1-36-35-36-38c-2-5-2-10 1-14 5-8 12-10 20-7 2 1 19 17 38 37l35 35 1-32c0-29 0-31 2-34 4-5 7-7 13-7 5 0 7 1 10 3 7 5 7 4 6 62v52l-3 4c-5 7-3 7-61 7-45 0-51 0-54-2zM68 201l-6-5-3-4v-53c0-53 0-54 2-57l5-5c3-2 4-2 55-2 59 0 57 0 62 7 3 2 3 4 3 9 0 4 0 6-3 9-5 7-6 7-40 7h-30l36 36 36 38c3 7 1 15-6 20-4 2-10 2-14 1l-39-37-35-36v31c0 33-1 35-7 39-5 4-12 5-16 2zm254 0c-7-5-9-13-6-20l36-38 36-36h-30c-34 0-35 0-40-7-2-3-3-5-3-9 0-7 2-10 7-14 3-2 4-2 56-2h54l4 3c7 5 7 4 7 61s0 55-7 61c-5 3-14 3-19 0-6-5-6-6-6-40v-31l-36 36-39 37c-4 1-10 1-14-1z" />
+      </svg>
+    </button>
+  </div>
+  <!-- Fullscreen toggle -->
+  <script type="text/javascript">
+    const fullScreenElement = document.querySelector(".fullscreen-letterbox");
+
+    const enterMethod = (fullScreenElement.requestFullScreen || fullScreenElement.webkitRequestFullScreen
+      || fullScreenElement.mozRequestFullScreen || fullScreenElement.msRequestFullScreen).bind(fullScreenElement);
+
+    const exitMethod = (document.exitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen).bind(document);
+
+    const toggleFullScreen = () => {
+      document.fullscreenElement ? exitMethod() : enterMethod();
+    }
+
+    document.querySelector(".fullscreen-toggle").addEventListener("click", toggleFullScreen);
+  </script>
+  <!-- Game content -->
+  
+  
+</body>
+
 </html>
