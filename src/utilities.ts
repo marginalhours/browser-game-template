@@ -1,4 +1,4 @@
-export const pickOne = (choices: T[]): T => {
+export const pickOne = <T>(choices: T[]): T => {
   return choices[Math.floor(Math.random()) * choices.length];
 };
 
