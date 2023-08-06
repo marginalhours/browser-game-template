@@ -1,5 +1,5 @@
 /**
- * SoundManager module does 2 things:
+ * AudioManager module does 2 things:
  * - Let you play sounds
  * - Let you play music
  *

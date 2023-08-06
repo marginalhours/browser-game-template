@@ -9,7 +9,7 @@ import {
   SoundType,
   MusicType,
   registerMusic,
-} from "./soundManager";
+} from "./audioManager";
 import { AssetType, EventType } from "./constants";
 import { invertEnum } from "./utilities";
 

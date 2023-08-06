@@ -4,7 +4,7 @@ const { Button, SpriteSheet, SpriteClass, imageAssets } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from "./constants";
 
-import { playSound, SoundType } from "../soundManager";
+import { playSound, SoundType } from "../audioManager";
 
 import walker from "../assets/images/walker.png";
 
