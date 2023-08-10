@@ -1,21 +1,19 @@
 import kontra, { Sprite, imageAssets } from "kontra";
 import { SceneID } from "./constants";
 
+import billboardBG from "../assets/images/backgrounds/Billboard.png";
+
 const creditsScene = kontra.Scene({
-  id: SceneID.CREDITS,
+  id: SceneID.BACKGROUND,
   onShow() {
-    // const creditsBackground = Sprite({
-    //   x: 0,
-    //   y: 0,
-    //   image: imageAssets[credits],
-    // });
-    // backButton.focus();
-    // this.add(creditsBackground);
-    // this.add(backButton);
+    const background = Sprite({
+      x: 0,
+      y: 0,
+      image: imageAssets[billboardBG],
+    });
+    this.add(background);
   },
-  focus() {
-    // backButton.focus();
-  },
+  focus() {},
 });
 
 export default creditsScene;
