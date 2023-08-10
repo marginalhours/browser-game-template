@@ -1,7 +1,7 @@
 import kontra, { Sprite, imageAssets } from "kontra";
-import { SceneID } from "./constants";
+import { SceneID } from "../constants";
 
-import billboardBG from "../assets/images/backgrounds/Billboard.png";
+import billboardBG from "../../assets/images/backgrounds/Billboard.png";
 
 const creditsScene = kontra.Scene({
   id: SceneID.BACKGROUND,
