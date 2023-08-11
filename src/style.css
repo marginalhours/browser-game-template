@@ -42,13 +42,6 @@ h1 {
   border-radius: 5px;
   image-rendering: pixelated;
   max-width: 98vw;
-  background: radial-gradient(circle, #00ca00 10%, transparent 11%),
-    radial-gradient(circle at bottom left, #00ca00 5%, transparent 6%),
-    radial-gradient(circle at bottom right, #00ca00 5%, transparent 6%),
-    radial-gradient(circle at top left, #00ca00 5%, transparent 6%),
-    radial-gradient(circle at top right, #00ca00 5%, transparent 6%);
-  background-size: 1em 1em;
-  background-color: #e0ffe0;
 }
 
 /* Fullscreen (general) */

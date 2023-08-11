@@ -1,12 +1,13 @@
 import kontra from "kontra";
 import { EventType } from "../constants";
-const { Button, SpriteSheet, SpriteClass, imageAssets } = kontra;
+const { SpriteSheet, SpriteClass, imageAssets } = kontra;
 const canvas = kontra.getCanvas();
 import { SceneID } from "./constants";
 
 import { playSound, SoundType } from "../audioManager";
 
 import walker from "../assets/images/walker.png";
+import TextButton from "../entities/TextButton";
 
 class BounceSprite extends SpriteClass {
   update() {
@@ -37,44 +38,22 @@ let bounceSprite = new BounceSprite({
   dy: 2,
 });
 
-let winButton = Button({
-  text: {
-    color: "red",
-    font: "16px monospace",
-    text: "win game",
-    anchor: { x: 0.5, y: 0.5 },
-  },
-  anchor: { x: 0.5, y: 0.5 },
+const winButton = TextButton({
+  font: "16px monospace",
+  label: "Back",
   x: canvas.width / 2,
   y: canvas.height / 2,
-  onDown() {
-    (this.y as number) += 1;
-  },
+  anchor: { x: 0.5, y: 0.5 },
   onUp() {
-    (this.y as number) -= 1;
     setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.MENU), 50);
   },
-  render() {
-    this.draw();
-
-    if (this.pressed) {
-      this.textNode.color = "#aaa";
-    } else if (this.focused || this.hovered) {
-      this.textNode.color = "#ccc";
-    } else {
-      this.textNode.color = "#fff";
-    }
-  },
 });
-
-kontra.track(winButton);
 
 let men: WalkSprite[] = [];
 
 const gameScene = kontra.Scene({
   id: SceneID.GAME,
   onShow() {
-    winButton.focus();
     men = Array.from(Array(25).keys()).map((_) => {
       let man = new WalkSprite({
         x: canvas.width * Math.random(),
@@ -92,9 +71,6 @@ const gameScene = kontra.Scene({
   },
   onHide() {
     this.remove(...men);
-  },
-  focus() {
-    winButton.focus();
   },
 });
 

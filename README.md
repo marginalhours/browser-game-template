@@ -28,6 +28,9 @@ Add the `.ts` file somewhere in the folder hierarchy under `scenes/`. The file s
 
 ## Post-LD-53 todo list
 
+- Transitions / timers (!!!)
+- Particle effects
+- Something something cards
 - utility _scenes_ (ImageScene with a static image and a back button, MenuScene etc)
 - Scene stack (???) to push/pop to instead of just transitioning (for eg battler with overworld)
 - tileset usage

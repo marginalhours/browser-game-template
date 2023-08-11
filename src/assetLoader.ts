@@ -113,8 +113,6 @@ const imageFiles = Object.values(
   import.meta.glob("./assets/images/**/*.png", { eager: true }),
 ).map((asset: any) => asset.default);
 
-console.log(imageFiles);
-
 /**
  * This block manages progress events
  */
@@ -124,7 +122,7 @@ const assetsToLoadCount =
 let loadedAssetsCount = 0;
 
 const loadingProgressCallback = (kind: AssetType, path: string) => {
-  console.log(`Loaded asset: ${path}`);
+  console.debug(`Loaded asset: ${path}`);
 
   loadedAssetsCount += 1;
   const progress = loadedAssetsCount / assetsToLoadCount;

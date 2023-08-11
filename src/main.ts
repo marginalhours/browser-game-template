@@ -10,7 +10,7 @@ let activeScene: Scene = loadingScene;
 
 // Event handling for scene transitions
 kontra.on(EventType.CHANGE_SCENE, (sceneName: string) => {
-  console.log(`Scene change: ${sceneName}`);
+  console.debug(`Scene change: ${sceneName}`);
   if (allScenes[sceneName] !== undefined) {
     const nextScene = allScenes[sceneName];
     activeScene.hide();

@@ -8,13 +8,17 @@ const canvasElement: HTMLCanvasElement = document.getElementById(
   "game-canvas",
 ) as HTMLCanvasElement;
 
-// Uncomment below if you have enough time to sort out pixel ratio nonsense
+// Uncomment below if you have enough time to sort out pixel ratio nonsense - you will lose control of exactly how big
+// the game canvas is in "internal" dimensions, but it'll sharpen up rendering.
 
-// const ctx = canvasElement.getContext('2d') as CanvasRenderingContext2D;
+// const ctx = canvasElement.getContext("2d") as CanvasRenderingContext2D;
 // const pixelRatio = window.devicePixelRatio || 1;
+
 // const bounds = canvasElement.getBoundingClientRect();
-// ctx.canvas.width = pixelRatio * bounds.width;
-// ctx.canvas.height = pixelRatio * bounds.height;
+// ctx.canvas.width =
+//   Math.round(pixelRatio * bounds.right) - Math.round(pixelRatio * bounds.left);
+// ctx.canvas.height =
+//   Math.round(pixelRatio * bounds.bottom) - Math.round(pixelRatio * bounds.top);
 
 // initialize kontra
 kontra.init(canvasElement, {});
