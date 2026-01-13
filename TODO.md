@@ -12,10 +12,12 @@ These are partially implemented files that need finishing:
 
 Features that add a lot of value quickly in a jam:
 
-- [ ] **Audio improvements**
+- [ ] **Scene stack onBlur handling** - Pressing ESC repeatedly to exit nested scenes doesn't work, need to handle scene blur/unfocus properly
+- [ ] **Audio manager rework** - Rework music manager to allow alternate mixing of sound and music (needs demo scene)
   - Separate volume controls (music/SFX sliders)
   - Fade in/out transitions
   - Audio groups/channels
+  - Mixing options (duck music during SFX, etc.)
 - [ ] **Keyboard navigation for menus** - Currently mouse-only, accessibility + faster testing
 - [ ] **State management / save system** - localStorage wrapper for game state persistence
 - [ ] **Error handling & logging** - Better error messages and recovery
