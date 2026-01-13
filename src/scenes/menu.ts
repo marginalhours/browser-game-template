@@ -24,6 +24,17 @@ const backgroundButton = TextButton({
   },
 });
 
+const progressDotsButton = TextButton({
+  label: "Progress Dots Demo",
+  font: "16px monospace",
+  onUp: () => {
+    setTimeout(
+      () => kontra.emit(EventType.CHANGE_SCENE, SceneID.PROGRESS_DOTS_DEMO),
+      50,
+    );
+  },
+});
+
 let menuGrid = Grid({
   x: canvas.width / 2,
   y: canvas.height / 2,
@@ -31,7 +42,7 @@ let menuGrid = Grid({
   rowGap: 15,
   justify: "center",
   align: "center",
-  children: [startButton, backgroundButton],
+  children: [startButton, backgroundButton, progressDotsButton],
 });
 
 const menuScene = kontra.Scene({

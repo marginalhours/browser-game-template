@@ -8,4 +8,5 @@ export enum SceneID {
   GAME = "game",
   BACKGROUND = "background",
   OPTIONS = "options",
+  PROGRESS_DOTS_DEMO = "progressDotsDemo",
 }
