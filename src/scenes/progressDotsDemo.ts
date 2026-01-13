@@ -129,8 +129,7 @@ function updateSlide() {
 }
 
 const scene = kontra.Scene({
-  id: SceneID.PROGRESS_DOTS_DEMO,
-
+  id: "",
   onShow() {
     currentSlide = 0;
     updateSlide();

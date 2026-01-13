@@ -49,7 +49,7 @@ const getFirstSceneId = () => {
 };
 
 const loadingScene = kontra.Scene({
-  id: SceneID.LOADING,
+  id: "",
   onShow() {
     startAssetLoading();
   },

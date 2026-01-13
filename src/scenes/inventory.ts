@@ -80,8 +80,7 @@ const closeButton = TextButton({
 });
 
 const scene = kontra.Scene({
-  id: SceneID.INVENTORY,
-
+  id: "",
   onShow() {
     // Create item displays
     itemTexts = items.map((item, i) => {

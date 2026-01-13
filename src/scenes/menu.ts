@@ -58,9 +58,7 @@ let menuGrid = Grid({
   ],
 });
 
-const menuScene = kontra.Scene({
-  id: SceneID.MENU,
-});
+const menuScene = kontra.Scene({ id: "" });
 
 menuScene.add(menuGrid);
 

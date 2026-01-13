@@ -68,7 +68,7 @@ const inventoryButton = TextButton({
 let men: WalkSprite[] = [];
 
 const gameScene = kontra.Scene({
-  id: SceneID.GAME,
+  id: "",
   onShow() {
     men = Array.from(Array(25).keys()).map((_) => {
       let man = new WalkSprite({

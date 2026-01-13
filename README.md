@@ -24,25 +24,10 @@ and look it up in `imageAssets` (imported from `kontra`)
 
 ### Adding a scene
 
-Add the `.ts` file somewhere in the folder hierarchy under `scenes/`. The file should export a kontra `Scene` object as the default export, with its `id` set to a unique new value from the `SceneID` enum in `scenes/constants.ts`
+Add a `.ts` file somewhere in the folder hierarchy under `scenes/`. The file should export a kontra `Scene` object as the default export. The scene ID is automatically derived from the file path:
 
-## Post-LD-53 todo list
+- `scenes/menu.ts` → ID: `"menu"`
+- `scenes/game/inventory.ts` → ID: `"game/inventory"`
+- `scenes/game/index.ts` → ID: `"game"`
 
-- Transitions / timers (!!!)
-- Particle effects
-- Something something cards
-- utility _scenes_ (ImageScene with a static image and a back button, MenuScene etc)
-- Scene stack (???) to push/pop to instead of just transitioning (for eg battler with overworld)
-- tileset usage
-- Custom fonts
-- stub entities (clickable, keyboard controlled)
-- utility classes (hoverable button, progress dot)
-- Keycap symbols (eg https://www.miragecraft.com/projects/keymason.html)
-- work harder at figuring out the kontra factory-vs-class pattern to be a bit slicker
-- camera shenanigans
-- collision detection (?)
-- localStorage example
-- multiscreen instructions example
-- JRPG dialogue example
-- matterjs integration example
-- achievements (woo)
+Optionally, add the scene ID to the `SceneID` enum in `scenes/constants.ts` for TypeScript autocomplete.

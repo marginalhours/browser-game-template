@@ -1,5 +1,4 @@
 import kontra, { Text, GameObject, onInput, offInput } from "kontra";
-import { SceneID } from "./constants";
 import { EventType } from "../constants";
 import TextButton from "../entities/TextButton";
 
@@ -100,8 +99,7 @@ const noButton = TextButton({
 });
 
 const scene = kontra.Scene({
-  id: SceneID.CONFIRM_MODAL,
-
+  id: "",
   onShow() {
     this.add(overlay);
     this.add(modal);

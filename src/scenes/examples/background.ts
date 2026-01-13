@@ -18,7 +18,7 @@ const backButton = TextButton({
 });
 
 const creditsScene = kontra.Scene({
-  id: SceneID.BACKGROUND,
+  id: "",
   onShow() {
     const background = Sprite({
       x: 0,
