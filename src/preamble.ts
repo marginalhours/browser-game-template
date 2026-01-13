@@ -4,23 +4,34 @@
  */
 import kontra from "kontra";
 
+// ============================================================================
+// GAME DIMENSIONS - Change these at the start of your jam!
+// ============================================================================
+// These are the logical dimensions your game code will use.
+// All positioning, sizing, and layout will be in these coordinates.
+// The canvas will automatically scale to high-DPI displays while maintaining
+// these logical dimensions.
+const LOGICAL_WIDTH = 640;
+const LOGICAL_HEIGHT = 480;
+// ============================================================================
+
 const canvasElement: HTMLCanvasElement = document.getElementById(
   "game-canvas",
 ) as HTMLCanvasElement;
 
-// Uncomment below if you have enough time to sort out pixel ratio nonsense - you will lose control of exactly how big
-// the game canvas is in "internal" dimensions, but it'll sharpen up rendering.
-
 const ctx = canvasElement.getContext("2d") as CanvasRenderingContext2D;
 const pixelRatio = window.devicePixelRatio || 1;
 
-const bounds = canvasElement.getBoundingClientRect();
-ctx.canvas.width =
-  Math.round(pixelRatio * bounds.right) - Math.round(pixelRatio * bounds.left);
-ctx.canvas.height =
-  Math.round(pixelRatio * bounds.bottom) - Math.round(pixelRatio * bounds.top);
+// Set canvas backing store to physical pixels for sharp rendering
+canvasElement.width = LOGICAL_WIDTH * pixelRatio;
+canvasElement.height = LOGICAL_HEIGHT * pixelRatio;
 
-ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+// Set CSS size to logical dimensions
+canvasElement.style.width = LOGICAL_WIDTH + "px";
+canvasElement.style.height = LOGICAL_HEIGHT + "px";
+
+// Scale all drawing operations to account for pixel ratio
+ctx.scale(pixelRatio, pixelRatio);
 
 // initialize kontra
 kontra.init(canvasElement, {});
