@@ -26,9 +26,16 @@ const pixelRatio = window.devicePixelRatio || 1;
 canvasElement.width = LOGICAL_WIDTH * pixelRatio;
 canvasElement.height = LOGICAL_HEIGHT * pixelRatio;
 
-// Set CSS size to logical dimensions
-canvasElement.style.width = LOGICAL_WIDTH + "px";
-canvasElement.style.height = LOGICAL_HEIGHT + "px";
+// Communicate logical dimensions to CSS via custom properties
+// This allows CSS to handle display sizing (including fullscreen scaling)
+document.documentElement.style.setProperty(
+  "--canvas-width",
+  LOGICAL_WIDTH + "px",
+);
+document.documentElement.style.setProperty(
+  "--canvas-height",
+  LOGICAL_HEIGHT + "px",
+);
 
 // Scale all drawing operations to account for pixel ratio
 ctx.scale(pixelRatio, pixelRatio);
