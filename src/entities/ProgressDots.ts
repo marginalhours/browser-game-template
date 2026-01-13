@@ -32,7 +32,7 @@ export default function factory({
   const totalWidth = (total - 1) * spacing;
 
   return kontra.GameObject({
-    x,
+    x: x,
     y,
     anchor: { x: anchor.x || 0.5, y: anchor.y || 0.5 },
     width: totalWidth,
@@ -53,10 +53,9 @@ export default function factory({
 
     render() {
       const ctx = kontra.getContext();
-      const startX = -totalWidth / 2;
 
       for (let i = 0; i < this._total; i++) {
-        const dotX = startX + i * this._spacing;
+        const dotX = i * this._spacing;
         const isActive = i === this._current;
 
         ctx.fillStyle = isActive ? this._activeColor : this._inactiveColor;

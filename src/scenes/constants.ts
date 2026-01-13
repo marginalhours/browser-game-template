@@ -9,4 +9,6 @@ export enum SceneID {
   BACKGROUND = "background",
   OPTIONS = "options",
   PROGRESS_DOTS_DEMO = "progressDotsDemo",
+  INVENTORY = "inventory",
+  CONFIRM_MODAL = "confirmModal",
 }

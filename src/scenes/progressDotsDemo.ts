@@ -1,4 +1,4 @@
-import kontra, { Text } from "kontra";
+import kontra, { Text, onInput, offInput } from "kontra";
 import { SceneID } from "./constants";
 import { EventType } from "../constants";
 import ProgressDots from "../entities/ProgressDots";
@@ -59,8 +59,8 @@ const progressDots = ProgressDots({
   current: 0,
   dotRadius: 8,
   spacing: 25,
-  activeColor: "#0f0",
-  inactiveColor: "#444",
+  activeColor: "#444",
+  inactiveColor: "#888",
 });
 
 const prevButton = TextButton({
@@ -134,6 +134,27 @@ const scene = kontra.Scene({
   onShow() {
     currentSlide = 0;
     updateSlide();
+
+    // Register keyboard handlers (fires once per key press)
+    onInput(["arrowleft"], () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    });
+
+    onInput(["arrowright"], () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    });
+  },
+
+  onHide() {
+    // Clean up keyboard handlers
+    offInput(["arrowleft"]);
+    offInput(["arrowright"]);
   },
 });
 
@@ -143,20 +164,5 @@ scene.add(progressDots);
 scene.add(prevButton);
 scene.add(nextButton);
 scene.add(menuButton);
-
-// Keyboard navigation
-scene.update = function () {
-  if (kontra.keyPressed("left") || kontra.keyPressed("arrowleft")) {
-    if (currentSlide > 0) {
-      currentSlide--;
-      updateSlide();
-    }
-  } else if (kontra.keyPressed("right") || kontra.keyPressed("arrowright")) {
-    if (currentSlide < slides.length - 1) {
-      currentSlide++;
-      updateSlide();
-    }
-  }
-};
 
 export default scene;

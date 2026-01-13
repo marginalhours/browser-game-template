@@ -35,6 +35,14 @@ const progressDotsButton = TextButton({
   },
 });
 
+const sceneStackButton = TextButton({
+  label: "Scene Stack Demo (I for inventory)",
+  font: "14px monospace",
+  onUp: () => {
+    setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
+  },
+});
+
 let menuGrid = Grid({
   x: canvas.width / 2,
   y: canvas.height / 2,
@@ -42,7 +50,12 @@ let menuGrid = Grid({
   rowGap: 15,
   justify: "center",
   align: "center",
-  children: [startButton, backgroundButton, progressDotsButton],
+  children: [
+    startButton,
+    backgroundButton,
+    progressDotsButton,
+    sceneStackButton,
+  ],
 });
 
 const menuScene = kontra.Scene({
