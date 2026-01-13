@@ -1,7 +1,6 @@
 import kontra, { Text, GameObject, onInput, offInput } from "kontra";
-import { SceneID } from "../constants";
-import { EventType } from "../../constants";
-import TextButton from "../../entities/TextButton";
+import { EventType } from "../../../constants";
+import TextButton from "../../../entities/TextButton";
 
 const canvas = kontra.getCanvas();
 
@@ -108,7 +107,7 @@ const scene = kontra.Scene({
         },
         onUp: () => {
           // Push confirmation modal
-          kontra.emit(EventType.PUSH_SCENE, SceneID.CONFIRM_MODAL);
+          kontra.emit(EventType.PUSH_SCENE, "examples/inventory/confirmModal");
         },
       });
     });

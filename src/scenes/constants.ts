@@ -18,7 +18,7 @@ export enum SceneID {
   GAME = "examples/game",
   BACKGROUND = "examples/background",
   PROGRESS_DOTS_DEMO = "examples/progressDotsDemo",
-  // Internal overlays can be left out or added as needed:
   INVENTORY = "examples/inventory",
-  CONFIRM_MODAL = "examples/confirmModal",
+  // Nested modal (scoped to inventory, can use string literal):
+  INVENTORY_CONFIRM_MODAL = "examples/inventory/confirmModal",
 }
