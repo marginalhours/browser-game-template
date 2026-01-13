@@ -1,13 +1,13 @@
 import kontra from "kontra";
-import { EventType } from "../constants";
+import { EventType } from "../../constants";
 const { SpriteSheet, SpriteClass, imageAssets } = kontra;
 const canvas = kontra.getCanvas();
-import { SceneID } from "./constants";
+import { SceneID } from "../constants";
 
-import { playSound, SoundType } from "../audioManager";
+import { playSound, SoundType } from "../../audioManager";
 
-import walker from "../assets/images/walker.png";
-import TextButton from "../entities/TextButton";
+import walker from "../../assets/images/walker.png";
+import TextButton from "../../entities/TextButton";
 
 class BounceSprite extends SpriteClass {
   update() {

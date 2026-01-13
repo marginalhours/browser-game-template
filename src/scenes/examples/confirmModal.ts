@@ -1,6 +1,6 @@
 import kontra, { Text, GameObject, onInput, offInput } from "kontra";
-import { EventType } from "../constants";
-import TextButton from "../entities/TextButton";
+import { EventType } from "../../constants";
+import TextButton from "../../entities/TextButton";
 
 const canvas = kontra.getCanvas();
 

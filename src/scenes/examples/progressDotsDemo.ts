@@ -1,8 +1,8 @@
 import kontra, { Text, onInput, offInput } from "kontra";
-import { SceneID } from "./constants";
-import { EventType } from "../constants";
-import ProgressDots from "../entities/ProgressDots";
-import TextButton from "../entities/TextButton";
+import { SceneID } from "../constants";
+import { EventType } from "../../constants";
+import ProgressDots from "../../entities/ProgressDots";
+import TextButton from "../../entities/TextButton";
 
 const canvas = kontra.getCanvas();
 

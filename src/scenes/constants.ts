@@ -14,11 +14,11 @@
  */
 export enum SceneID {
   LOADING = "loading",
-  MENU = "menu",
-  GAME = "game",
-  BACKGROUND = "background",
-  PROGRESS_DOTS_DEMO = "progressDotsDemo",
+  MENU = "examples/menu",
+  GAME = "examples/game",
+  BACKGROUND = "examples/background",
+  PROGRESS_DOTS_DEMO = "examples/progressDotsDemo",
   // Internal overlays can be left out or added as needed:
-  INVENTORY = "inventory",
-  CONFIRM_MODAL = "confirmModal",
+  INVENTORY = "examples/inventory",
+  CONFIRM_MODAL = "examples/confirmModal",
 }
