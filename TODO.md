@@ -12,12 +12,8 @@ These are partially implemented files that need finishing:
 
 Features that add a lot of value quickly in a jam:
 
-- [ ] **Scene stack onBlur handling** - Pressing ESC repeatedly to exit nested scenes doesn't work, need to handle scene blur/unfocus properly
-- [ ] **Audio manager rework** - Rework music manager to allow alternate mixing of sound and music (needs demo scene)
-  - Separate volume controls (music/SFX sliders)
-  - Fade in/out transitions
-  - Audio groups/channels
-  - Mixing options (duck music during SFX, etc.)
+- [x] **Scene stack ESC handling** - Global ESC-to-pop for overlay scenes (set `preventEscClose = true` to opt out)
+- [x] **Audio manager rework** - Separate SFX/music volume controls, crossfade transitions, mute toggles, localStorage persistence
 - [ ] **Keyboard navigation for menus** - Currently mouse-only, accessibility + faster testing
 - [ ] **State management / save system** - localStorage wrapper for game state persistence
 - [ ] **Error handling & logging** - Better error messages and recovery

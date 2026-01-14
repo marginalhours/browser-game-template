@@ -1,9 +1,13 @@
-import kontra from "kontra";
+import kontra, { onInput } from "kontra";
 import { EventType } from "../../constants";
 const canvas = kontra.getCanvas();
 import { SceneID } from "../constants";
 
 import TextButton from "../../entities/TextButton";
+
+// ESC pops overlay scenes, I opens inventory
+onInput(["esc"], () => kontra.emit(EventType.POP_SCENE));
+onInput(["i"], () => kontra.emit(EventType.PUSH_SCENE, SceneID.INVENTORY));
 
 const winButton = TextButton({
   font: "16px monospace",
@@ -36,14 +40,5 @@ const gameScene = kontra.Scene({ id: "" });
 
 gameScene.add(winButton);
 gameScene.add(inventoryButton);
-
-// Add keyboard handler for inventory
-const originalUpdate = gameScene.update.bind(gameScene);
-gameScene.update = function () {
-  originalUpdate();
-  if (kontra.keyPressed("i")) {
-    kontra.emit(EventType.PUSH_SCENE, SceneID.INVENTORY);
-  }
-};
 
 export default gameScene;

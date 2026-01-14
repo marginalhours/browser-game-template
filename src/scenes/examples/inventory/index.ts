@@ -1,4 +1,4 @@
-import kontra, { Text, GameObject, onInput, offInput } from "kontra";
+import kontra, { Text, GameObject } from "kontra";
 import { EventType } from "../../../constants";
 import TextButton from "../../../entities/TextButton";
 
@@ -118,11 +118,6 @@ const scene = kontra.Scene({
     itemTexts.forEach((t) => this.add(t));
     deleteButtons.forEach((b) => this.add(b));
     this.add(closeButton);
-
-    // ESC key to close
-    onInput(["esc"], () => {
-      kontra.emit(EventType.POP_SCENE);
-    });
   },
 
   onHide() {
@@ -134,9 +129,6 @@ const scene = kontra.Scene({
     this.remove(closeButton);
     itemTexts = [];
     deleteButtons = [];
-
-    // Clean up ESC key handler
-    offInput(["esc"]);
   },
 });
 
