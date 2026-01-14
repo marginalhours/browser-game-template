@@ -15,10 +15,11 @@
 export enum SceneID {
   LOADING = "loading",
   MENU = "examples/menu",
-  GAME = "examples/game",
+  SPRITE = "examples/sprite",
   BACKGROUND = "examples/background",
   PROGRESS_DOTS_DEMO = "examples/progressDotsDemo",
+  STACK = "examples/stack",
   INVENTORY = "examples/inventory",
-  // Nested modal (scoped to inventory, can use string literal):
   INVENTORY_CONFIRM_MODAL = "examples/inventory/confirmModal",
+  AUDIO_DEMO = "examples/audioDemo",
 }

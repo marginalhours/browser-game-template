@@ -4,6 +4,10 @@ import kontra, { Scene, GameLoop } from "kontra";
 import { allScenes } from "./scenes";
 import loadingScene from "./scenes/loading";
 import { EventType } from "./constants";
+import { initPreferences } from "./preferences";
+
+// Initialize user preferences from localStorage
+initPreferences();
 
 // Scene stack (bottom to top)
 // Rendering: All scenes render from bottom to top (unless opaque flag stops it)

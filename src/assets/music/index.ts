@@ -6,12 +6,13 @@
 import { Howl } from "howler";
 
 /**
- * Enum maps from how to refer to the music in-game (MusicType.BACKGROUND)
+ * Enum maps from how to refer to the music in-game (MusicType.TRACK1)
  * to filename *relative to assets/music* eg "background.mp3" is "assets/music/background.mp3"
  * and "underworld/track1.mp3" is "assets/music/underworld/track1.mp3"
  */
 export enum MusicType {
-  BACKGROUND = "background.mp3",
+  TRACK1 = "track1.ogg",
+  TRACK2 = "track2.ogg",
 }
 
 export const musicAssets: { [key in MusicType]?: Howl } = {};

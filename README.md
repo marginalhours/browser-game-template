@@ -31,3 +31,7 @@ Add a `.ts` file somewhere in the folder hierarchy under `scenes/`. The file sho
 - `scenes/game/index.ts` → ID: `"game"`
 
 Optionally, add the scene ID to the `SceneID` enum in `scenes/constants.ts` for TypeScript autocomplete.
+
+## Credits
+
+Sample background music assets from https://patrickdearteaga.com

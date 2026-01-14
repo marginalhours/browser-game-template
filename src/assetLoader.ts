@@ -27,7 +27,6 @@ export const startAssetLoading = () => {
         autoplay: false,
         loop: false,
         rate: 1.0,
-        volume: 0.25,
         onload: () => loadingProgressCallback(AssetType.SOUND, source),
       }),
     );
@@ -42,7 +41,6 @@ export const startAssetLoading = () => {
         autoplay: false,
         loop: true,
         rate: 1.0,
-        volume: 0.1,
         onload: () =>
           loadingProgressCallback(AssetType.MUSIC, source as string),
       }),

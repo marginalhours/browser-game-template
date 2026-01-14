@@ -11,8 +11,8 @@ import kontra from "kontra";
 // All positioning, sizing, and layout will be in these coordinates.
 // The canvas will automatically scale to high-DPI displays while maintaining
 // these logical dimensions.
-const LOGICAL_WIDTH = 640;
-const LOGICAL_HEIGHT = 480;
+const LOGICAL_WIDTH = 800;
+const LOGICAL_HEIGHT = 600;
 // ============================================================================
 
 const canvasElement: HTMLCanvasElement = document.getElementById(

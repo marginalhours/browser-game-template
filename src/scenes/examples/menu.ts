@@ -9,7 +9,7 @@ const startButton = TextButton({
   label: "Sprite Demo",
   font: "16px monospace",
   onUp: () => {
-    setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
+    setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.SPRITE), 50);
   },
 });
 
@@ -39,7 +39,18 @@ const sceneStackButton = TextButton({
   label: "Scene Stack Demo (I for inventory)",
   font: "14px monospace",
   onUp: () => {
-    setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.GAME), 50);
+    setTimeout(() => kontra.emit(EventType.CHANGE_SCENE, SceneID.STACK), 50);
+  },
+});
+
+const audioDemoButton = TextButton({
+  label: "Audio Demo",
+  font: "16px monospace",
+  onUp: () => {
+    setTimeout(
+      () => kontra.emit(EventType.CHANGE_SCENE, SceneID.AUDIO_DEMO),
+      50,
+    );
   },
 });
 
@@ -55,6 +66,7 @@ let menuGrid = Grid({
     backgroundButton,
     progressDotsButton,
     sceneStackButton,
+    audioDemoButton,
   ],
 });
 
